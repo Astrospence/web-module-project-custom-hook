@@ -9,7 +9,7 @@ import "./style.css";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const [value, setValue] = useDarkMode(false);
+  const [darkMode, setDarkMode] = useDarkMode(false);
 
   useEffect(() => {
     axios
@@ -20,8 +20,8 @@ const App = () => {
       .catch(err => console.log(err));
   }, []);
   return (
-    <div className={value ? "dark-mode App" : "App"}>
-      <Navbar darkMode={value} setDarkMode={setValue} />
+    <div className={darkMode ? "dark-mode App" : "App"}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Charts coinData={coinData} />
     </div>
   );
